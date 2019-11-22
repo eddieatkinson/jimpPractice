@@ -1,11 +1,28 @@
-import React from 'react';
-import { testDb } from '../utilities/api';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default () => {
-  testDb();
-  return (
-    <div className='images-container' >
-      Hey
-    </div>
-  )
+import GetTestDataAction from '../redux/actions/GetTestDataAction';
+
+class Images extends Component {
+  componentDidMount() {
+    this.props.GetTestDataAction();
+  }
+  render() {
+    console.log(this.props.data);
+    return (
+      <div>
+        Hey
+      </div>
+    )
+  }
 }
+
+const mapStateToProps = state => {
+  return {
+    data: state.data,
+  }
+}
+
+export default connect(mapStateToProps, {
+  GetTestDataAction,
+})(Images);
