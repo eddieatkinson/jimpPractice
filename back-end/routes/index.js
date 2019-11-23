@@ -24,4 +24,15 @@ router.get('/test', (req, res) => {
   });
 });
 
+router.get('/images', (req, res) => {
+  const selectionQuery = `SELECT * from images;`;
+  connection.query(selectionQuery, [], (error, results) => {
+    if (error) {
+      throw error;
+    } else {
+      res.json(results);
+    }
+  });
+});
+
 module.exports = router;
