@@ -6,6 +6,9 @@ import GetTestDataAction from '../redux/actions/GetTestDataAction';
 import GetImagesAction from '../redux/actions/GetImagesAction';
 
 class Images extends Component {
+  state = {
+    backgroundColor: 'green',
+  }
   componentDidMount() {
     this.props.GetImagesAction();
   }
@@ -17,15 +20,20 @@ class Images extends Component {
     });
     return images
   }
+  handleClick() {
+    this.setState({
+      backgroundColor: this.state.backgroundColor === 'green' ? 'blue' : 'green',
+    })
+  }
   render() {
     return (
-      <div>
+      <div id='images-container' style={{backgroundColor: this.state.backgroundColor}}>
         <div className='images-wrapper'>
           {this.getImages()}
         </div>
         <div className='button-wrapper'>
-          <button onClick={() => console.log('clicked')}>
-            Hey
+          <button onClick={this.handleClick.bind(this)}>
+            Click me
           </button>
         </div>
       </div>
