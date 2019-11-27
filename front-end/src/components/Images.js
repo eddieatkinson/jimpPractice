@@ -18,10 +18,16 @@ class Images extends Component {
     return images
   }
   render() {
-    console.log(this.props.data);
     return (
-      <div className='images-wrapper'>
-        {this.getImages()}
+      <div>
+        <div className='images-wrapper'>
+          {this.getImages()}
+        </div>
+        <div className='button-wrapper'>
+          <button onClick={() => console.log('clicked')}>
+            Hey
+          </button>
+        </div>
       </div>
     )
   }

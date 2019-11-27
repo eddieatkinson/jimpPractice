@@ -6,3 +6,7 @@
   height: 100px;
   position: absolute;
 }
+
+.button-wrapper {
+  padding-top: 110px;
+}
