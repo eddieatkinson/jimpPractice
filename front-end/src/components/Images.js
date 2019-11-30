@@ -15,7 +15,7 @@ class Images extends Component {
   getImages() {
     const images = map(this.props.images, (image, i) => {
       return (
-        <img key={i} src={image.address} alt={image.alt} />
+        <img key={i} src={image.address} alt={image.alt} id={`image-${i}`} />
       )
     });
     return images
@@ -23,7 +23,11 @@ class Images extends Component {
   handleClick() {
     this.setState({
       backgroundColor: this.state.backgroundColor === 'green' ? 'blue' : 'green',
-    })
+    });
+  }
+  handleZChange(i) {
+    const firstImage = document.getElementById(`image-${i}`);
+    firstImage.style.zIndex = 900;
   }
   render() {
     return (
@@ -34,6 +38,11 @@ class Images extends Component {
         <div className='button-wrapper'>
           <button onClick={this.handleClick.bind(this)}>
             Click me
+          </button>
+        </div>
+        <div className='button-wrapper'>
+          <button onClick={() => this.handleZChange(0)}>
+            Click me to change z index of first image
           </button>
         </div>
       </div>
