@@ -15,7 +15,7 @@ class Images extends Component {
   getImages() {
     const images = map(this.props.images, (image, i) => {
       return (
-        <img key={i} src={image.address} alt={image.alt} id={`image-${i}`} />
+        <img key={i} src={image.address} alt={image.alt} style={{zIndex:image.z}} id={`image-${i}`} />
       )
     });
     return images
