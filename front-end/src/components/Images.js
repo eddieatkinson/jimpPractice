@@ -11,9 +11,6 @@ class Images extends Component {
     top: {},
     left: {},
   }
-  setStateLoop() {
-
-  }
   async componentDidMount() {
     await this.props.GetImagesAction();
     const top = {};
@@ -100,4 +97,4 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   GetTestDataAction,
   GetImagesAction,
-})(Images);
+})(Images)
